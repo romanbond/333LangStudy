@@ -1,5 +1,5 @@
-factorial :: Integer -> Integer
-factorial n
+fac :: Integer -> Integer
+fac n
   | n < 0      = error "factorial of negative argument"
   | n == 0    = 1
   | otherwise = fac' n 1
