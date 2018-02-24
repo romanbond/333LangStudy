@@ -20,3 +20,11 @@ readFromFile = do
 -- 1:13:30 in video
 fib = 1 : 1 : [a + b | (a, b) <- zip fib (tail fib)]
 -- 1,1,2,3,5,8,...
+{-
+1st: fib = 1 and (tail fib) = 1
+[1,1,2] : a : 1 + b: 1 = 2
+2nd: fib = 1 and (tail fib) = 2
+[1,1,2,3] : a : 1 + b: 2 = 3
+-}
+fib300 = fib !! 300 -- gives 300th elem in fib seq
+take 20 fib         -- gives frist 20 elems in the fib seq
