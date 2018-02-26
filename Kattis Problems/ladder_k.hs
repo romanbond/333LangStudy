@@ -9,6 +9,7 @@ main = do
     x <- readInts
     let wall = x!!0
     let angle = x!!1
-    let ans = sin(fromIntegral angle) * fromIntegral wall
+    let ans = sin(fromIntegral angle) * fromIntegral wall  
+    -- Haskell, by default, uses radians for the sin function
+    -- Figure out how to convert degrees to radians and then you're done
     print ans
---              This is basically done but I don't know the right eq
