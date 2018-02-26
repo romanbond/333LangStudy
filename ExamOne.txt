@@ -1,0 +1,75 @@
+Part 1
+* Lambda Calculus
+    * Alpha Equivalence (4)
+        * Asking if two lambda expression are equivalent
+    * Bound and Free variable
+    * Combinators - an abstraction without free variables
+        * Variable
+        * Abstraction
+        * Application
+    * Beta Reduction (need to show steps)
+        * Beta-Reducing to normal form
+        * Divergence (reduce infinitely)
+Part 2
+* ​Overview of Haskell Language Features
+    * Main function
+        * Needs an IO type
+    * Prelude module
+    * Haskell type system
+        * Strongly typed (if it takes an int it’ll only accept an int)
+        * Statically typed 
+        * Type inferred
+        * Type classes
+            * Polymorphism through different type classes since you can divide ints by ints, doubles by doubles, etc...
+            * Sum :: Num a => [a] -> a
+        * Purely Functional 
+            * Gives us referential transparency (return value depends only on the argument, same input you get same output every time)
+            * He might ask about this by giving a definition 
+    * Evaluating Haskell Expressions
+        * 5/2=2.5
+        * 5-length(4:3:2:1:[]) = 1
+        * tail(head(tail [“Hello, “World”])).   —This will be the harder of problems
+            * Tail of (tail [“Hello, “World”]) is [“World”]
+            * Head of the previous is “World”
+            * And the tail of previous is “orld”
+    * Presidence (Adding parenthesis to an expression without changing the way it works)
+        * So 5-2*7+8/4 would be ((5-(2*7))+(8/4))
+        * So g f x y would be (((g f) x) y) since you apply left to right, g of f, f of x, x of y. ((g(f))(x))(y) is the javascript implementation.
+        * f x+y. Function calls have higher precedence than operators so it would be ( (f x) + y). timesTwo x + y would be ( (timesTwo x) + y)
+    * Rewriting Expressions in prefix and infix form (Two short parts)
+        * x ** y = (**) x y
+        * logBase 2 10 = 2 `logBase` 10
+    * Identifying Syntax Errors
+        * Examples: 
+            * If even x then “x is even”
+                * This doesn’t have an else
+            * Tail(head “Hello World”)
+                * You can not apply tail to a non list value and would give a compile type error
+    * Determining the Type of an Expression
+        * “Hello” :: String or [Char] (list of characters)
+        * head “Hello” :: Char
+        * drop 5 :: [a] -> a
+        * drop :: Int -> [a] -> [a] since drop 2 “Hello” = “llo” so it takes in an int and a list and returns a list.
+        * reverse :: [a] -> [a]
+        * reverse . head would be a type error NOT EVERYTHING WILL HAVE A VALID TYPE ON THE TEST. Actually it technically is a type :: [[a]]->[a] but you will see one with a type error.
+    * Know about basic type class methods
+        * Naming them
+            * Eq
+            * Ord Num
+            * Enum
+            * Read
+            * Show
+        * Identify which class is required for an expression
+            * f [ ] [ ] = True
+            * f [ ] __ = False 
+            * f __ [ ] = False
+            * f (x:xs) (y:ys) = x==y && f xs ys
+            * f :: Eq a => [a] -> [a] -> Bool
+            * x + y :: Num a
+            * x < y :: Ord a
+            * print :: Show
+    * Writing some code
+        * Recursive function
+            * Write the same func two different ways with pattern matching and write it with guards.
+
+No folds, map or filter
