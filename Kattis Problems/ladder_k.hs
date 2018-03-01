@@ -1,15 +1,18 @@
 import Data.List
 import System.IO
 
-readInts :: IO [Int]
-readInts = fmap (map read.words) getLine
-
 main :: IO ()
-main = do
-    x <- readInts
-    let wall = x!!0
-    let angle = x!!1
-    let ans = sin(fromIntegral angle) * fromIntegral wall  
-    -- Haskell, by default, uses radians for the sin function
-    -- Figure out how to convert degrees to radians and then you're done
-    print ans
+main = interact (showResult . doTheWork . parseInput)
+
+parseInput :: String -> [Float]
+parseInput = (map read.words)
+
+-- This [Float] wil convert the list of int into a list of float
+doTheWork :: [Float] -> Float
+doTheWork [wall, angle] = sin(angle * (pi/180)) * wall
+
+showResult :: Float -> String
+showResult x = (show x) ++ "\n"  -- show is basically the toString func
+
+
+--  need to add ceiling func to the final answer 
